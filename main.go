@@ -26,13 +26,8 @@ var length = flag.Int("l", 12, "length of generated password, default = 12")
 
 func main() {
 	var bytelength int = (*length * 3) / 4
-	if mod := bytelength % 3; mod != 0 {
-		switch mod {
-		case 1:
-			bytelength += 2
-		case 2:
-			bytelength++
-		}
+	for bytelength*4 < *length*3 {
+		bytelength++
 	}
 	buffer := make([]byte, bytelength)
 	_, err := rand.Read(buffer)
