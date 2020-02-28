@@ -1,2 +1,2 @@
 # genpass
-tool for generating random passwords
+tool for generating random passwords in golang
